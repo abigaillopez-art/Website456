@@ -1,27 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BLACKPINK Fan Page</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" >
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>BLACKPINK Fan Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      font-family: 'Orbitron', sans-serif;
+      color: hotpink;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px;
+      font-size: 50px;
+      animation: glow 2s infinite alternate;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    nav button {
+      background: hotpink;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background: deeppink;
+      transform: scale(1.1);
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 1s forwards;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .member, .album, .gallery-img {
+      border: 2px solid hotpink;
+      padding: 15px;
+      margin: 10px;
+      display: inline-block;
+      width: 200px;
+      transition: 0.3s;
+    }
+
+    .member:hover, .album:hover, .gallery-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px hotpink;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 300px;
+    }
+
+    .note {
+      position: fixed;
+      font-size: 25px;
+      color: hotpink;
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px hotpink; }
+      to { text-shadow: 0 0 30px deeppink; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </head>
+
 <body>
-  <nav>
-  <button
-  onclick="showSection ('members')">Members</button
-  <button
-    onclick="showSection ('albums')">Albums</button
-  <button 
-    onclick="showSection('music')">Tours</button>
+
+<header>BLACKPINK</header>
+
+<nav>
+  <button onclick="showSection('members')">Members</button>
+  <button onclick="showSection('albums')">Albums</button>
+  <button onclick="showSection('music')">Tours</button>
   <button onclick="showSection('gallery')">Gallery</button>
 </nav>
- <!-- MEMBERS -->
+
+<!-- MEMBERS -->
 <section id="members" class="active">
   <h2>Members</h2>
+
   <div class="member">
     <img src="https://i.pinimg.com/236x/96/cc/67/96cc67c91afdcfa2e57851bd057875ea.jpg" alt="Jennie Kim Blackpink"/>
     <h3>Jennie</h3>
   </div>
+
   <div class="member">
   <img src="https://i.pinimg.com/236x/e7/85/21/e7852180de0bf3cf295aeaa99fe21956.jpg" alt="Discover 580 Jisoo and blackpink jisoo ideas on this ..."/>
     <h3>Jisoo</h3>
@@ -80,5 +182,6 @@
 <div class="note" style="left:50%; animation-delay:4s;">🎵</div>
 <div class="note" style="left:70%; animation-delay:1s;">🎶</div>
 <div class="note" style="left:90%; animation-delay:3s;">🎵</div>
+
 </body>
 </html>
